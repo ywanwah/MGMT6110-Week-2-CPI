@@ -1,4 +1,8 @@
-# AI Prompt Log: Singapore CPI Dashboard Integration
+# PROMPTS.md - [AI Prompt Log: Singapore CPI Dashboard Integration]
+**Student:** [Jo Yeong Wan Wah] · **Course:** MGMT 6110 · **Problem Set 2**
+**User sentence:** A user opens this screen to the Singapore CPI Dashboard Intregration, and knows it worked when they see a fully dynamic, real-time chart or metric displaying the latest Singapore Consumer Price Index (CPI) data fetched from the official SingStat API, alongside a clear attribution footnote in the footer, without any hardcoded mock data.
+**Live link:** https://mgmt-6110-week-2-cpi-8ix1.vercel.app/
+# 
 
 ## 1. Initial System Prompt
 **Intent:** Establish the serverless project architecture, error guardrails, and Vercel environment constraints.
