@@ -1,0 +1,6 @@
+{
+  "name": "Singapore CPI Dashboard",
+  "description": "Live Consumer Price Index (CPI) dashboard for Singapore, powered by the SingStat Table Builder API.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
