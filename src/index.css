@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+/* Keep Disqus away from Tailwind's OKLCH color values. */
+#disqus_thread {
+  color: #1f2937;
+  background-color: #ffffff;
+}
+
+#disqus_thread * {
+  color: #1f2937 !important;
+}
+
+#disqus_thread a,
+#disqus_thread a * {
+  color: #2563eb !important;
+}
