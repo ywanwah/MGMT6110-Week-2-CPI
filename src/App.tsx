@@ -97,19 +97,49 @@ export default function App() {
   }, [fetchCpiData]);
 
   useEffect(() => {
-    const configureDisqus = () => {
-      window.disqus_config = function () {
-        this.page.url = DISQUS_PAGE_URL;
-        this.page.identifier = DISQUS_PAGE_IDENTIFIER;
-      };
+    const disqusThread = document.getElementById('disqus_thread');
+    if (!disqusThread) {
+      return;
+    }
+
+    // Disqus reads this global while embed.js is loading, so define it before
+    // adding the script element.
+    window.disqus_config = function () {
+      this.page.url = DISQUS_PAGE_URL;
+      this.page.identifier = DISQUS_PAGE_IDENTIFIER;
     };
 
-    configureDisqus();
+    const resetDisqus = () => {
+      if (!window.DISQUS) {
+        return;
+      }
 
-    // React can run effects more than once in development. Reuse the existing
-    // script so the Disqus embed is only initialized once.
-    if (document.getElementById(DISQUS_SCRIPT_ID)) {
+      window.DISQUS.reset({
+        reload: true,
+        config: function () {
+          this.page.url = DISQUS_PAGE_URL;
+          this.page.identifier = DISQUS_PAGE_IDENTIFIER;
+        }
+      });
+    };
+
+    // If the embed has already loaded, reinitialize the existing instance.
+    if (window.DISQUS) {
+      resetDisqus();
       return;
+    }
+
+    const existingScript = document.getElementById(DISQUS_SCRIPT_ID);
+
+    // React Strict Mode or another component instance may have already added
+    // the script. Wait for that script rather than adding a duplicate.
+    if (existingScript) {
+      const handleScriptLoad = () => resetDisqus();
+      existingScript.addEventListener('load', handleScriptLoad);
+
+      return () => {
+        existingScript.removeEventListener('load', handleScriptLoad);
+      };
     }
 
     const script = document.createElement('script');
@@ -117,7 +147,16 @@ export default function App() {
     script.src = `https://${DISQUS_SHORTNAME}.disqus.com/embed.js`;
     script.setAttribute('data-timestamp', String(Date.now()));
     script.async = true;
+
+    // The first load performs Disqus's normal Universal Embed Code
+    // initialization. If the script is already cached or initialized by the
+    // time the load event fires, reset it using the supported API.
+    script.addEventListener('load', resetDisqus);
     (document.head || document.body).appendChild(script);
+
+    return () => {
+      script.removeEventListener('load', resetDisqus);
+    };
   }, []);
 
   return (
