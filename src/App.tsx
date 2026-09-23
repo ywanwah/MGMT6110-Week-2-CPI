@@ -293,9 +293,19 @@ export default function App() {
           </div>
           <div className="text-[11px] text-slate-500 leading-relaxed">
             <span className="font-semibold text-slate-700">Privacy: </span>
-            This site uses Microsoft Clarity to collect anonymous usage data, such as clicks and scrolling, to help improve the dashboard. See the{' '}
+            This page uses Microsoft Clarity and Disqus, which use cookies to record how visitors use the site and to host comments. By using this page you agree that we and Microsoft may collect and use this data. See the{' '}
             <a href="https://www.microsoft.com/privacy/privacystatement" target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 hover:text-blue-700 underline inline-flex items-center gap-0.5">
               Microsoft Privacy Statement
+              <ExternalLink className="w-3 h-3 inline" />
+            </a>
+            , the{' '}
+            <a href="https://disqus.com/privacy-policy/" target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 hover:text-blue-700 underline inline-flex items-center gap-0.5">
+              Disqus privacy policy
+              <ExternalLink className="w-3 h-3 inline" />
+            </a>
+            {' '}and the{' '}
+            <a href="https://disqus.com/data-sharing-settings/" target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 hover:text-blue-700 underline inline-flex items-center gap-0.5">
+              Disqus data sharing settings
               <ExternalLink className="w-3 h-3 inline" />
             </a>
             .
