@@ -58,4 +58,36 @@ on the main page only, so that every comment lands in one thread. Do not change 
 else on the page, and add no npm package without telling me why one is needed.
 
 ---
+## 5. Embed Microsoft Clarity to see what visitors do
+ROLE: You are a front-end developer working in my existing project.
 
+GOAL: Add Microsoft Clarity to my product, together with a privacy notice that covers both
+Microsoft Clarity and Disqus.
+
+CONTEXT:
+- My live address is: https://mgmt-6110-week-2-cpi.vercel.app/
+- Clarity gave me this tracking code:
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ymuz5nu3bi");
+</script>
+
+OUTPUT:
+1) Add the tracking code to the head of index.html, wrapped so that it runs only when
+   window.location.hostname is exactly my live address's hostname. Keep the project ID
+   inside the code exactly as Clarity provided it.
+2) Add this notice to the footer of every page, with the three links working:
+   "This page uses Microsoft Clarity and Disqus, which use cookies to record how visitors
+   use the site and to host comments. By using this page you agree that we and Microsoft
+   may collect and use this data. See the Microsoft Privacy Statement
+   (https://www.microsoft.com/privacy/privacystatement), the Disqus privacy policy
+   (https://disqus.com/privacy-policy/) and the Disqus data sharing settings
+   (https://disqus.com/data-sharing-settings/)."
+
+GUARDRAILS: Do not edit the project ID. Do not load the tracking code twice. Do not
+change anything else on the page.
+
+---
