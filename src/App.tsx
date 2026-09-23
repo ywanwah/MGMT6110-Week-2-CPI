@@ -9,7 +9,7 @@ import { HealthStatusModal } from './components/HealthStatusModal';
 
 const DISQUS_SHORTNAME = 'jojo-phronesis';
 const DISQUS_PAGE_URL = 'https://mgmt-6110-week-2-cpi.vercel.app/';
-const DISQUS_PAGE_IDENTIFIER = 'mgmt-6110-week-2-cpi';
+const DISQUS_PAGE_IDENTIFIER = 'home';
 const DISQUS_SCRIPT_ID = 'disqus-embed-script';
 
 declare global {
