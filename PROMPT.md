@@ -37,4 +37,25 @@
 *   **Action Taken:** Manually verified that the environment variable checking block in `api/cpi.js` correctly evaluates both missing values and the string literal `"undefined"` to align perfectly with Vercel's preview deployment behavior.
 
 ---
+## 4. Embed Disqus for comments
+ROLE: You are a front-end developer working in my existing project. Add to it; do not
+rewrite what is already there.
+
+GOAL: Add a Disqus comment section to the bottom of my main page only, so that visitors
+can leave feedback on the product in a single thread.
+
+CONTEXT:
+- My Disqus shortname is: jojo-phronesis
+- My live address is: https://mgmt-6110-week-2-cpi.vercel.app/
+
+OUTPUT: A small component on the main page that loads the Disqus Universal Code once, with
+page.url set to my full live address (https, and no query string) and page.identifier set
+to the fixed string "home". Put one short line above it inviting visitors to say what
+worked for them and what did not.
+
+GUARDRAILS: Load the Disqus script only once, even when the component re-renders. Mount it
+on the main page only, so that every comment lands in one thread. Do not change anything
+else on the page, and add no npm package without telling me why one is needed.
+
+---
 
